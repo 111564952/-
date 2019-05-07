@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry exported="true" kind="lib" path="web/WEB-INF/lib/commons-fileupload-1.2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="web/WEB-INF/lib/commons-io-1.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="web/WEB-INF/lib/commons-lang-2.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="web/WEB-INF/lib/jstl.jar"/>
+	<classpathentry exported="true" kind="lib" path="web/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry exported="true" kind="lib" path="web/WEB-INF/lib/servlet-api.jar"/>
+	<classpathentry exported="true" kind="lib" path="web/WEB-INF/lib/spring-core-3.2.0.M1.jar"/>
+	<classpathentry exported="true" kind="lib" path="web/WEB-INF/lib/spring-web-3.2.0.M1.jar"/>
+	<classpathentry exported="true" kind="lib" path="web/WEB-INF/lib/standard.jar"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="output" path="web/WEB-INF/classes"/>
+</classpath>
