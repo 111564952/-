@@ -61,7 +61,7 @@ $(function(){
 			<br>
 
 			<div>
-				<a class="notImplementLink" href="#nowhere">忘记登录密码</a> <a
+				<a class="notImplementLink" href="fondpassword.jsp">忘记登录密码</a> <a
 					href="register.jsp" class="pull-right">免费注册</a>
 			</div>
 			<div style="margin-top: 20px">

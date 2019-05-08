@@ -61,7 +61,7 @@ public class ForeServletFilter implements Filter {
 			String method = StringUtils.substringAfterLast(uri, "/fore");
 			request.setAttribute("method", method);
 
-			req.getRequestDispatcher("/foreServlet").forward(request, response);
+			req.getRequestDispatcher("/foreServlet").forward(request, response);//?????/
 			return;
 		}
 		chain.doFilter(request, response);

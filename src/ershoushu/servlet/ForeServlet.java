@@ -39,6 +39,7 @@ import ershoushu.util.Page;
 public class ForeServlet extends BaseForeServlet {
 	private static final long serialVersionUID = 1L;
 
+
 	public String home(HttpServletRequest request, HttpServletResponse response, Page page) {
 		List<Category> cs = new CategoryDAO().list();
 		new ProductDAO().fill(cs);
@@ -46,7 +47,23 @@ public class ForeServlet extends BaseForeServlet {
 		request.setAttribute("cs", cs);
 		return "home.jsp";
 	}
-
+	public String fondpassword(HttpServletRequest request, HttpServletResponse response, Page page) {
+		System.out.println("王鑫垒进入");
+		String name = request.getParameter("name");
+		String password = request.getParameter("password");
+		name = HtmlUtils.htmlEscape(name);
+		System.out.println(name);
+		boolean exist = userDAO.isExist(name);
+		if (!exist) {
+			request.setAttribute("msg", "该用户名不存在，请点击注册");
+			return "fondpassword.jsp";
+		}
+		User user = userDAO.get(name);
+		user.setName(name);
+		user.setPassword(password);
+		userDAO.update(user);
+		return "@fondpasswordSuccess.jsp";
+	}
 	public String register(HttpServletRequest request, HttpServletResponse response, Page page) {
 
 		String name = request.getParameter("name");

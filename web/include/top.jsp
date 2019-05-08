@@ -16,9 +16,13 @@
 		<a href="register.jsp">免费注册</a>
 	</c:if>
 
-	<span class="pull-right"> <a href="forebought">我的订单</a> <a
-		href="forecart"> <span style="color: #C40000; margin: 0px"
-			class=" glyphicon glyphicon-shopping-cart redColor"></span> 购物车<strong>${cartTotalItemNumber}</strong>件
+	<span class="pull-right"> <a href="forebought">我的订单</a> 
+	<a href="#">我要卖书</a>
+	<a href="#">我要捐书</a>
+	<a href="forecart"> <span style="color: #C40000; margin: 0px"
+			class=" glyphicon glyphicon-shopping-cart redColor">
+			</span> 购物车<strong>${cartTotalItemNumber}</strong>件
 	</a>
+	<a href="#">客服服务</a>
 	</span>
 </nav>
