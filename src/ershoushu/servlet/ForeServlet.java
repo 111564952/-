@@ -38,7 +38,10 @@ import ershoushu.util.Page;
  */
 public class ForeServlet extends BaseForeServlet {
 	private static final long serialVersionUID = 1L;
-
+	public String my(HttpServletRequest request, HttpServletResponse response, Page page) {
+		
+		return "my.jsp";
+	}
 
 	public String home(HttpServletRequest request, HttpServletResponse response, Page page) {
 		List<Category> cs = new CategoryDAO().list();
@@ -48,7 +51,8 @@ public class ForeServlet extends BaseForeServlet {
 		return "home.jsp";
 	}
 	public String fondpassword(HttpServletRequest request, HttpServletResponse response, Page page) {
-		System.out.println("王鑫垒进入");
+		//用户修改密码
+		//System.out.println("王鑫垒进入");
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 		name = HtmlUtils.htmlEscape(name);

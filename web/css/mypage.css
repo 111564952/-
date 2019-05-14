@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+div.myMenu {
+	width: 200px;
+	background-color: #00000;
+	margin-left: 200px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+}
+
+div.myMenu a {
+	color: #000;
+}
+
+div.myMenu a:hover {
+	color: #C40000;
+	text-decoration: none;
+}
+div.mainMy {
+	line-height: 30px;
+	padding-left: 10px;
+	font-size: 18px;
+	color:#C40000;
+}
+div.eachMy {
+	line-height: 50px;
+	padding-left: 10px;
+	font-size: 14px;
+}
+
+div.myhead {
+	width: 800px;
+	height: 510px;
+	background-color: white;
+	margin-left: 400px;
+}

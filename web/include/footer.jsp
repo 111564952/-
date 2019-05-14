@@ -19,7 +19,7 @@
                 <a href="#nowhere" >支付宝充值</a>
             </div>
             <div class="descColumn">
-                <span class="descColumnTitle">天猫保障</span>
+                <span class="descColumnTitle">二手保障</span>
                 <a href="#nowhere" >发票保障</a>
                 <a href="#nowhere" >售后规则</a>
                 <a href="#nowhere" >缺货赔付</a>
@@ -35,14 +35,12 @@
                 <span class="descColumnTitle">商家服务</span>
                 <a href="#nowhere" >商家入驻</a>
                 <a href="#nowhere" >商家中心</a>
-                <a href="#nowhere" >天猫智库</a>
-                <a href="#nowhere" >天猫规则</a>
                 <a href="#nowhere" >物流服务</a>
                 <a href="#nowhere" >喵言喵语</a>
                 <a href="#nowhere" >运营服务</a>
             </div>
             <div class="descColumn">
-                <span class="descColumnTitle">手机天猫</span>
+                <span class="descColumnTitle">手机软件</span>
                 <a href="#nowhere" ><img src="img/site/ma.png"></a>
             </div>
              
@@ -54,7 +52,7 @@
      
     <div id="copyright" class="copyright">
         <div class="white_link" >
-            <a href="#nowhere" >关于天猫</a>
+            <a href="#nowhere" >关于我们</a>
             <a href="#nowhere" > 帮助中心</a>
             <a href="#nowhere" >开放平台</a>
             <a href="#nowhere" >  诚聘英才</a>
@@ -103,4 +101,5 @@
     </div>
 </div>
 </body>
+
 </html>

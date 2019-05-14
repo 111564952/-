@@ -92,7 +92,7 @@ public class ProductDAO {
         }
     }
   
-    public Product get(int id) {
+    public Product get(int id) {//通过id查找数据
         Product bean = new Product();
   
         try (Connection c = DBUtil.getConnection(); Statement s = c.createStatement();) {

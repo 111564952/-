@@ -30,9 +30,11 @@ public class ForeAuthFilter implements Filter {
         String contextPath=request.getServletContext().getContextPath();
         
         String[] noNeedAuthPage = new String[]{//准备字符串数组 noNeedAuthPage，存放哪些不需要登录也能访问的路径
-                "homepage",
+              
+        		"homepage",
                 "checkLogin",
                 "register",
+                "fondpassword",
                 "loginAjax",
                 "login",
                 "product",

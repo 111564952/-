@@ -28,11 +28,11 @@ $(function(){
 <div id="loginDiv" style="position: relative">
 
 	<div class="simpleLogo">
-		<a href="http://how2j.cn/tmall"><img src="img/site/simpleLogo.png"></a>
+		<a href="${contextPath }"><img src="img/site/simpleLogo.png" width="100px" height="60px"></a>
 	</div>
 
 	<img id="loginBackgroundImg" class="loginBackgroundImg"
-		src="img/site/loginBackground.png">
+		src="img/site/loginBackground.png" width="1300px" height="650px">
 
 	<form class="loginForm" action="forelogin" method="post">
 		<div id="loginSmallDiv" class="loginSmallDiv">
@@ -57,7 +57,7 @@ $(function(){
 				</span> <input id="password" name="password" type="password"
 					placeholder="密码" type="text">
 			</div>
-			<span class="text-danger">不要输入真实的天猫账号密码</span><br>
+			<span class="text-danger">不要输入真实的账号密码</span><br>
 			<br>
 
 			<div>
