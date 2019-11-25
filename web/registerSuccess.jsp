@@ -5,7 +5,7 @@
 <%@include file="include/top.jsp"%>
 <%@include file="include/simpleSearch.jsp"%>
 
-<%@include file="include/registerSuccessPage.jsp"%>
+<%@include file="include/register/registerSuccessPage.jsp"%>
 
 <%@include file="include/footer.jsp"%>
 

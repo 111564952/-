@@ -12,7 +12,4 @@ public class ProductAllComparator implements Comparator<Product>{
 		
 		return p2.getReviewCount()*p2.getSaleCount()-p1.getReviewCount()*p1.getSaleCount();
 	}
-
-
-
 }

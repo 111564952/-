@@ -48,7 +48,7 @@ public class ImageUtil {
 		}
 	}
 	
-	public static Image resizeImage(Image srcImage, int width, int height) {
+	public static Image resizeImage(Image srcImage, int width, int height) {//控制图片宽度高度
 		try {
 
 			BufferedImage buffImg = null;
@@ -62,5 +62,4 @@ public class ImageUtil {
 		}
 		return null;
 	}
-
 }

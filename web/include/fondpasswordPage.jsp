@@ -18,20 +18,12 @@ $(function(){
 			$("div.registerErrorMessageDiv").css("visibility","visible");			
 			return false;
 		}		
-		if(0==$("#password").val().length){
-			$("span.errorMessage").html("请输入密码");
+		if(0==$("#phone").val().length){
+			$("span.errorMessage").html("请输入电话号码");
 			$("div.registerErrorMessageDiv").css("visibility","visible");			
 			return false;
 		}		
-		if(0==$("#repeatpassword").val().length){
-			$("span.errorMessage").html("请输入重复密码");
-			$("div.registerErrorMessageDiv").css("visibility","visible");			
-			return false;
-		}		
-		if($("#password").val() !=$("#repeatpassword").val()){
-			$("span.errorMessage").html("重复密码不一致");
-			$("div.registerErrorMessageDiv").css("visibility","visible");			
-			return false;
+		
 		}		
 
 		return true;
@@ -54,35 +46,38 @@ $(function(){
 		</div>
 
 
-		<table class="registerTable" align="center">
+		<table align="center" class="registerTable">
+		<tbody>
 			<tr>
-				<td class="registerTip registerTableLeftTD">修改密码</td>
+				<div style="height: 50px;"></div>
+				<div>
+					<img  src="img/jindu/jindu2.png" class="imgjindu"/>
+				</div>
+				
+				<td class="registerTip registerTableLeftTD">
+					找回密码
+				</td>
 				<td></td>
 			</tr>
 			<tr>
-				<td class="registerTableLeftTD">请输入登录名</td>
-				<td class="registerTableRightTD"><input id="name" name="name"
-					placeholder="会员名一旦设置成功，无法修改"></td>
+				<td class="registerTableLeftTD">登陆名</td>
+				<td class="registerTableRightTD"><input placeholder="会员名一旦设置成功，无法修改" name="name" id="name"> </td>
 			</tr>
 			<tr>
-				<td class="registerTip registerTableLeftTD">请重新设置登录密码</td>
-				<td class="registerTableRightTD">登录时验证，保护账号信息</td>
+				<td class="registerTip registerTableLeftTD">请输入您的手机号码</td>
+				<td class="registerTableRightTD">注：注册时所提交的手机号码</td>
 			</tr>
 			<tr>
-				<td class="registerTableLeftTD">修改登录密码</td>
-				<td class="registerTableRightTD"><input id="password"
-					name="password" type="password" placeholder="设置你的登录密码"></td>
+				<td class="registerTableLeftTD">手机号码</td>
+				<td class="registerTableRightTD"><input type="text" placeholder="手机号码" name="phone" id="phone"> </td>
 			</tr>
+			
 			<tr>
-				<td class="registerTableLeftTD">再次输入密码确认</td>
-				<td class="registerTableRightTD"><input id="repeatpassword"
-					type="password" placeholder="请再次输入你的密码"></td>
+				<td class="registerButtonTD" colspan="2">
+					<a href="fondpasswordPage2.jsp"><button>下一步</button></a>
+				</td>
 			</tr>
-
-			<tr>
-				<td colspan="2" class="registerButtonTD"><a
-					href="fondpasswordSuccess.jsp"><button>提 交</button></a></td>
-			</tr>
-		</table>
+		</tbody>
+	</table>
 	</div>
 </form>

@@ -5,8 +5,8 @@
 <div class="buyPageDiv">
 	<form action="forecreateOrder" method="post">
 		<div class="buyFlow">
-			<img class="pull-left" src="img/site/simpleLogo.png"> <img
-				class="pull-right" src="img/site/buyflow.png">
+			<img src="img/site/simpleLogo.png" style="margin-left:-250px;width:140px;height: 50px;"> 
+			<img class="pull-right" src="img/site/buyflow.png">
 			<div style="clear: both"></div>
 		</div>
 		<div class="address">
@@ -40,9 +40,8 @@
 			<table class="productListTable">
 				<thead>
 					<tr>
-						<th colspan="2" class="productListTableFirstColumn"><img
-							class="tmallbuy" src="img/site/tmallbuy.png"> <a
-							class="marketLink" href="#nowhere">店铺：天猫店铺</a> <a
+						<th colspan="2" class="productListTableFirstColumn"> <a
+							class="marketLink" href="#nowhere">我们的店铺</a> <a
 							class="wangwanglink" href="#nowhere"> <span
 								class="wangwangGif"></span>
 						</a></th>

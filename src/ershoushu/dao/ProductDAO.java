@@ -55,7 +55,32 @@ public class ProductDAO {
             e.printStackTrace();
         }
     }
-  
+
+
+
+
+
+    public void addsellbooks(Product bean) {
+           System.out.println("1111");
+        String sql = "insert into Product(name,orignalPrice,promotePrice,stock) values(?,?,?,?)";
+        try (Connection c = DBUtil.getConnection(); PreparedStatement ps = c.prepareStatement(sql);) {
+
+            ps.setString(1, bean.getName());
+System.out.println(bean.getOrignalPrice());
+            ps.setFloat(2, bean.getOrignalPrice());
+            ps.setFloat(3, bean.getPromotePrice());
+            ps.setInt(4, bean.getStock());
+            ps.execute();
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) {
+                int id = rs.getInt(1);
+                bean.setId(id);
+            }
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+        }
+    }
     public void update(Product bean) {
  
         String sql = "update Product set name= ?, subTitle=?, orignalPrice=?,promotePrice=?,stock=?, cid = ?, createDate=? where id = ?";

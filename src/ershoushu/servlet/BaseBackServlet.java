@@ -41,6 +41,7 @@ public abstract class BaseBackServlet extends HttpServlet {
     protected PropertyValueDAO propertyValueDAO = new PropertyValueDAO();
     protected ReviewDAO reviewDAO = new ReviewDAO();
     protected UserDAO userDAO = new UserDAO();
+    protected Sell_BooksDao sellBookDao=new Sell_BooksDao();
  
     public void service(HttpServletRequest request, HttpServletResponse response) {
         try {

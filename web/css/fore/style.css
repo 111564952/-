@@ -358,13 +358,13 @@ div.footer div.copyright div.white_link {
 	margin-left: 10px;
 }
 
-div.footer_desc div.descColumn {
+div.descColumn {
 	width: 20%;
 	float: left;
 	padding-left: 15px;
 }
 
-div.footer_desc div.descColumn span.descColumnTitle {
+span.descColumnTitle {
 	color: #646464;
 	font-weight: bold;
 	font-size: 16px;

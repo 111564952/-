@@ -25,6 +25,14 @@
     <url-pattern>/userServlet</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>CheckbooksServlet</servlet-name>
+    <servlet-class>ershoushu.servlet.CheckbooksServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckbooksServlet</servlet-name>
+    <url-pattern>/checkbooksServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>ProductImageServlet</servlet-name>
     <servlet-class>ershoushu.servlet.ProductImageServlet</servlet-class>
   </servlet>
@@ -73,22 +81,46 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   <filter>
-        <filter-name>ForeAuthFilter</filter-name>
-        <filter-class>ershoushu.filter.ForeAuthFilter</filter-class>
-    </filter>
-  
-    <filter-mapping>
-        <filter-name>ForeAuthFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>  
+    <filter-name>ForeAuthFilter</filter-name>
+    <filter-class>ershoushu.filter.ForeAuthFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>ForeAuthFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
   <filter>
     <filter-name>ForeServletFilter</filter-name>
     <filter-class>ershoushu.filter.ForeServletFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>ForeServletFilter</filter-name>
+    <url-pattern>/*</url-pattern>
     <dispatcher>FORWARD</dispatcher>
     <dispatcher>REQUEST</dispatcher>
-    <url-pattern>/*</url-pattern>
   </filter-mapping>
+  <servlet>
+    <servlet-name>SellbooksServlet</servlet-name>
+    <servlet-class>ershoushu.servlet.SellbooksServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SellbooksServlet</servlet-name>
+    <url-pattern>/SellbooksServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SellbookServlet</servlet-name>
+    <servlet-class>ershoushu.servlet.SellbookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SellbookServlet</servlet-name>
+    <url-pattern>/sellbookServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>GuanliyuanServlet</servlet-name>
+    <servlet-class>ershoushu.servlet.GuanliyuanServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GuanliyuanServlet</servlet-name>
+    <url-pattern>/guanliyuanServlet</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

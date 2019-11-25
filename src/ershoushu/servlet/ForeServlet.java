@@ -9,6 +9,7 @@ import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.web.util.HtmlUtils;
@@ -20,6 +21,7 @@ import ershoushu.bean.Product;
 import ershoushu.bean.ProductImage;
 import ershoushu.bean.PropertyValue;
 import ershoushu.bean.Review;
+import ershoushu.bean.Sell_Product;
 import ershoushu.bean.User;
 import ershoushu.comparator.ProductAllComparator;
 import ershoushu.comparator.ProductDateComparator;
@@ -31,6 +33,7 @@ import ershoushu.dao.OrderDAO;
 import ershoushu.dao.OrderItemDAO;
 import ershoushu.dao.ProductDAO;
 import ershoushu.dao.ProductImageDAO;
+import ershoushu.dao.Sell_ProductDao;
 import ershoushu.util.Page;
 
 /**
@@ -38,8 +41,50 @@ import ershoushu.util.Page;
  */
 public class ForeServlet extends BaseForeServlet {
 	private static final long serialVersionUID = 1L;
+	
+	public String givebooks(HttpServletRequest request, HttpServletResponse response, Page page) {
+
+		return "givebooks.jsp";
+	}
+	
+	public String sellbooks(HttpServletRequest request, HttpServletResponse response, Page page) {
+
+		return "sellbooks.jsp";
+	}
+
+//	public String sellproductadd(HttpServletRequest request, HttpServletResponse response, Page page) {
+//		System.out.println("1111");
+//		Sell_Product sell_Product = new Sell_Product();
+//		sell_Product.setName(request.getParameter("name"));
+//		
+//		sell_Product.setLittname(request.getParameter("littname"));
+//		
+//		sell_Product.setBecause(request.getParameter("because"));
+//		
+//		sell_Product.setOldPrice(Float.parseFloat(request.getParameter("oldprice")));
+//		
+//		sell_Product.setNewPrice(Float.parseFloat(request.getParameter("newprice")));
+//		
+//		sell_Product.setBreakage(Integer.parseInt(request.getParameter("breakage")));
+//		
+//		sell_Product.setCategory(new CategoryDAO().get(Integer.parseInt(request.getParameter("category"))));
+//		
+//		sell_Product.setMobile(request.getParameter("mobile"));
+//		
+//		System.out.println(sell_Product);
+//		sell_Product.setUser((User)request.getSession().getAttribute("user"));
+//		new Sell_ProductDao().add(sell_Product);
+//		System.out.println(sell_Product);
+//		request.setAttribute("sell_Product", sell_Product);
+//		return "selladdsuccess.jsp";
+//	}
+
 	public String my(HttpServletRequest request, HttpServletResponse response, Page page) {
-		
+		User user = (User) request.getSession().getAttribute("user");
+		System.out.println(user);
+		List<Sell_Product> sell_Products = new Sell_ProductDao().list(user.getId());
+		System.out.println(user);
+		request.setAttribute("sell_Products", sell_Products);
 		return "my.jsp";
 	}
 
@@ -50,45 +95,120 @@ public class ForeServlet extends BaseForeServlet {
 		request.setAttribute("cs", cs);
 		return "home.jsp";
 	}
+
+	public String store(HttpServletRequest request, HttpServletResponse response, Page page) {
+
+		return "mystore.jsp";
+	}
+
+	public String release(HttpServletRequest request, HttpServletResponse response, Page page) {
+
+		return "productrelease.jsp";
+	}
+
 	public String fondpassword(HttpServletRequest request, HttpServletResponse response, Page page) {
-		//用户修改密码
-		//System.out.println("王鑫垒进入");
+		//这个方法 类比与登录，只是将验证登录的账号密码换成 账号 和电话号码
+		//之后第二个页面的方法，将改变成对于密码的修改，（前提应该建立在此登录的基础上）
+		
+		
 		String name = request.getParameter("name");
-		String password = request.getParameter("password");
+		String phone = request.getParameter("phone");
 		name = HtmlUtils.htmlEscape(name);
+		phone =HtmlUtils.htmlEscape(phone);
+		
 		System.out.println(name);
-		boolean exist = userDAO.isExist(name);
+		boolean exist = userDAO.isExist(name,phone);
 		if (!exist) {
-			request.setAttribute("msg", "该用户名不存在，请点击注册");
+			request.setAttribute("msg", "请输入正确的用户名");
 			return "fondpassword.jsp";
 		}
-		User user = userDAO.get(name);
-		user.setName(name);
+		HttpSession session=request.getSession();
+		
+		//应该注释这一部分的更新的内容 重新书写 账号 手机号码登录的程序
+		User user=userDAO.get2(name, phone);
+		
+		if(user==null) {
+			//如果获取到的user为空 则用户名 密码 也为空 所以 还返回输入用户名 密码的页面
+			request.setAttribute("msg", "输入电话号码");
+			return "@fondpasswordPage.jsp";
+		}
+		session.setAttribute("user", user);
+
+		return "@fondpasswordPage2.jsp";
+	}
+	
+	//找回密码的第二个页面的方法   主要功能在于 由账号电话登陆成功后 对数据的修改
+	public String fondpassword2(HttpServletRequest request, HttpServletResponse response, Page page) {
+		//修改
+		
+		String password = request.getParameter("password");
+		password =HtmlUtils.htmlEscape(password);
+		System.out.println("重新设置的密码"+password);
+		User user=new User();
+		//创建session 获取上一步封装的user内容  
+		HttpSession session=request.getSession();
+		user=(User)session.getAttribute("user");
+		//将密码 也封装进user中
 		user.setPassword(password);
+		
 		userDAO.update(user);
+
 		return "@fondpasswordSuccess.jsp";
 	}
+
 	public String register(HttpServletRequest request, HttpServletResponse response, Page page) {
 
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
+		//获取到的信息，将其存入到session域中。传到register2的方法中 进行封装。
+		
 		name = HtmlUtils.htmlEscape(name);
 		System.out.println(name);
 		boolean exist = userDAO.isExist(name);
 
 		if (exist) {
-			request.setAttribute("msg", "用户名已经被使用,不能使用");
+			request.setAttribute("msg", "鐢ㄦ埛鍚嶅凡缁忚浣跨敤,涓嶈兘浣跨敤");
 			return "register.jsp";
 		}
+		HttpSession session=request.getSession();
+		session.setAttribute("name", name);
+		session.setAttribute("password", password);
 
+		//此时 不应该直接跳转到注册成功的页面 ，应该进入注册的第二步页面。获取电话号码。
+		return "@registerPh.jsp";
+	}
+	
+	//再添加一个获取到电话号码之后的user（）   以及将获取到的整个user传到下一层、
+	public String register2(HttpServletRequest request, HttpServletResponse response, Page page) {
+
+		
+		HttpSession session =request.getSession();
+		String name=(String) session.getAttribute("name");
+		String password = (String)session.getAttribute("password");
+		String phone=request.getParameter("phone");
+		System.out.println("断电");
+		//获取到的信息
+		
+		phone = HtmlUtils.htmlEscape(phone);
+		System.out.println(phone);
+		boolean exist = userDAO.isExist(name,phone);
+
+		if (exist) {
+			request.setAttribute("msg", "鐢ㄦ埛鍚嶅凡缁忚浣跨敤,涓嶈兘浣跨敤");
+			return "registerPh.jsp";
+		}
+//
 		User user = new User();
 		user.setName(name);
 		user.setPassword(password);
+		user.setPhone(phone);
 		System.out.println(user.getName());
 		System.out.println(user.getPassword());
+		
 		userDAO.add(user);
 
 		return "@registerSuccess.jsp";
+		
 	}
 
 	public String login(HttpServletRequest request, HttpServletResponse response, Page page) {
@@ -509,6 +629,6 @@ public class ForeServlet extends BaseForeServlet {
 		review.setUser(user);
 		reviewDAO.add(review);
 
-		return "@forereview?oid="+oid+"&showonly=true";
+		return "@forereview?oid=" + oid + "&showonly=true";
 	}
 }

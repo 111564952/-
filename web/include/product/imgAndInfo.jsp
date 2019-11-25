@@ -164,8 +164,8 @@ $(function(){
 				<span>此商品即将参加聚划算，<span class="juhuasuanTime">1天19小时</span>后开始，</span>
 			</div>
 			<div class="productPriceDiv">
-				<div class="gouwujuanDiv"><img height="16px" src="img/site/gouwujuan.png">
-				<span> 全天猫实物商品通用</span>
+				<div class="gouwujuanDiv"><img height="16px" src="img/site/gouwujuan.jpg">
+				<span> 二手书网站通用</span>
 				
 				</div>
 				<div class="originalDiv">

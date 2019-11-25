@@ -34,7 +34,10 @@
 					style="background-color: #FFF; color: #c40000; border: 1px solid #DDD; width: 30%;">
 					<a href="forebought"> 我的订单</a>
 				</button>
-
+				<button class="btn"
+					style="background-color: #FFF; color: #c40000; border: 1px solid #DDD; width: 30%;">
+					<a href="foresellbooks"> 我要卖书</a>
+				</button>
 			</span>
 
 		</div>

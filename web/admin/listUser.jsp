@@ -33,8 +33,9 @@
 			</tbody>
 		</table>
 	</div>
-	<div class=""pageDiv">
+	<div class="pageDiv">
 		<%@include file="../include/admin/adminPage.jsp" %>
 	</div>
 </div>
+
 <%@include file="../include/admin/adminFooter.jsp"%>

@@ -8,9 +8,9 @@
 
 	<form action="foresearch" method="post">
 		<div class="simpleSearchDiv pull-right">
-			<input type="text" placeholder="平衡车 原汁机" name="keyword">
+			<input type="text" placeholder="呐喊  彷徨" name="keyword">
 			<button class="searchButton" type="submit">搜书籍</button>
-			<div class="searchBelow">
+			<div class="searchBelow" style="position:relative;right:50px;width:380px;">
 			<c:forEach items="${cs}" var="c" varStatus="st">
 				<c:if test="${st.count>=8 and st.count<=11}">
 					<span>

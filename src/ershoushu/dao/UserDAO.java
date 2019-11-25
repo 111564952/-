@@ -12,7 +12,7 @@ import ershoushu.bean.*;
 import ershoushu.util.*;
   
 public class UserDAO {
-  
+	  
     public int getTotal() {
         int total = 0;
         try (Connection c = DBUtil.getConnection(); Statement s = c.createStatement();) {
@@ -32,12 +32,13 @@ public class UserDAO {
   
     public void add(User bean) {
   
-        String sql = "insert into user values(null ,? ,?)";
+        String sql = "insert into user values(null ,?,?,?)";
         try (Connection c = DBUtil.getConnection(); PreparedStatement ps = c.prepareStatement(sql);) {
   
             ps.setString(1, bean.getName());
             ps.setString(2, bean.getPassword());
   
+            ps.setString(3, bean.getPhone());
             ps.execute();
   
             ResultSet rs = ps.getGeneratedKeys();
@@ -53,12 +54,12 @@ public class UserDAO {
   
     public void update(User bean) {
   
-        String sql = "update user set name= ? , password = ? where id = ? ";
+        String sql = "update user set password = ? where id = ? ";
         try (Connection c = DBUtil.getConnection(); PreparedStatement ps = c.prepareStatement(sql);) {
   
-            ps.setString(1, bean.getName());
-            ps.setString(2, bean.getPassword());
-            ps.setInt(3, bean.getId());
+            //ps.setString(1, bean.getName());
+            ps.setString(1, bean.getPassword());
+            ps.setInt(2, bean.getId());
   
             ps.execute();
   
@@ -148,21 +149,56 @@ public class UserDAO {
         return user!=null;
  
     }
+    
+    public boolean isExist(String name,String phone) {
+        User user = get2(name,phone);
+        return user!=null;
  
+    }
+    
+    
+    
+    
     public User get(String name) {
         User bean = null;
           
         String sql = "select * from User where name = ?";
         try (Connection c = DBUtil.getConnection(); PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, name);
+            //ps.setString(2, phone);
             ResultSet rs =ps.executeQuery();
   
             if (rs.next()) {
                 bean = new User();
                 int id = rs.getInt("id");
                 bean.setName(name);
-                String password = rs.getString("password");
-                bean.setPassword(password);
+                //String phone= rs.getString("phone");
+               // bean.setPhone(phone);
+                bean.setId(id);
+            }
+  
+        } catch (SQLException e) {
+  
+            e.printStackTrace();
+        }
+        return bean;
+    }
+ 
+    public User get2(String name,String phone) {
+        User bean = null;
+          
+        String sql = "select * from User where name = ? and phone =?";
+        try (Connection c = DBUtil.getConnection(); PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setString(1, name);
+            ps.setString(2, phone);
+            ResultSet rs =ps.executeQuery();
+  
+            if (rs.next()) {
+                bean = new User();
+                int id = rs.getInt("id");
+                bean.setName(name);
+                //String phone= rs.getString("phone");
+                bean.setPhone(phone);
                 bean.setId(id);
             }
   
@@ -196,5 +232,6 @@ public class UserDAO {
         }
         return bean;
     }
+    
   
 }

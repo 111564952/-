@@ -67,12 +67,13 @@ public class ProductImageServlet extends BaseBackServlet {
 					// 把文件保存为jpg格式
 					BufferedImage img = ImageUtil.change2jpg(f);
 					ImageIO.write(img, "jpg", f);
-					if (ProductImageDAO.type_single.equals(pi.getType())) {
-						File f_small = new File(imageFolder_small, fileName);
-						File f_middle = new File(imageFolder_middle, fileName);
-
-						ImageUtil.resizeImage(f, 56, 56, f_small);
-						ImageUtil.resizeImage(f, 217, 190, f_middle);
+					if(ProductImageDAO.type_single.equals(pi.getType())){
+					    File f_small = new File(imageFolder_small, fileName);
+					    File f_middle = new File(imageFolder_middle, fileName);
+					    f_small.getParentFile().mkdirs();
+					    f_middle.getParentFile().mkdirs();
+					    ImageUtil.resizeImage(f, 56, 56, f_small);
+					    ImageUtil.resizeImage(f, 217, 190, f_middle);
 					}
 
 				} catch (Exception e) {
@@ -139,5 +140,4 @@ public class ProductImageServlet extends BaseBackServlet {
 
 		return "admin/listProductImage.jsp";
 	}
-
 }

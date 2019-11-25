@@ -25,7 +25,7 @@
 				<a href="#nowhere"> 已卖出的宝贝 </a>
 			</div>
 			<div class="eachMy">
-				<a href="#nowhere"> 我的店铺 </a>
+				<a href="forestore"> 我的店铺 </a>
 			</div>
 		</div>
 	</div>
