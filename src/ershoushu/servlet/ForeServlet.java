@@ -37,6 +37,7 @@ import ershoushu.dao.Sell_ProductDao;
 import ershoushu.util.Page;
 
 /**
+ * 王鑫垒
  * Servlet implementation class ForeServlet
  */
 public class ForeServlet extends BaseForeServlet {
